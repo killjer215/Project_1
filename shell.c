@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 	int counter = 0;
 	char History[9][SHELL_BUFFER_SIZE];
 	int History_Counter = 0;
-	int sub = 0;
+	int sub = 1;
 	
 
 	/* Entrypoint for the testrunner program */
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 
 		// TO-DO P5.2
 		
-		fprintf(stdout, "Shell(pid=%d)%d> ", shell_pid,counter);
+		fprintf(stdout, "Shell( %d pid=%d)%d> ", sub,shell_pid,counter);
 		fflush(stdout);
 
 		/* Read a line of input. */
@@ -161,6 +161,7 @@ int main(int argc, char **argv)
 			if (!strcmp(exec_argv[0], "sub"))
 			{
 				strcpy(exec_argv[0],"./shell");
+				sub++;
 			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
