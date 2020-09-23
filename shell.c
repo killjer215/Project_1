@@ -128,7 +128,7 @@ int main(int argc, char **argv)
 					strcpy(History[History_Counter],exec_argv[0]);	
 					History_Counter++;
 				}
-		printf("Outside the else if %s\n", exec_argv[0]);
+		
 		/* If Shell runs 'exit' it exits the program. */
 		if (!strcmp(exec_argv[0], "exit")) {
 			printf("Exiting process %d\n", shell_pid);
@@ -145,7 +145,7 @@ int main(int argc, char **argv)
 		
 		}
 		else {
-			/*if (exec_argv[0][0] == '!'){
+			if (exec_argv[0][0] == '!'){
 				int L = (int)(exec_argv[0][1])-48;
 				if(L < 1 || L > History_Counter)
 					fprintf(stderr, "Not valid\n%d",L);
@@ -153,7 +153,7 @@ int main(int argc, char **argv)
 					fprintf(stdout, "Its In the else if sojenfajsneoisadf\n%d%s",L,History[L-1]);
 					strcpy(exec_argv[0],History[L-1]);	
 				}
-			}*/
+			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
 			pid_from_fork = fork();
