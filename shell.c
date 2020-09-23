@@ -121,8 +121,10 @@ int main(int argc, char **argv)
 			continue;
 		/* Terminate the list of exec parameters with NULL */
 		exec_argv[exec_argc] = NULL;
+		fprintf(stdout, "Outside the History Counter if %s\n", exec_argv[1]);
 		if(History_Counter < 9)
 				{
+					fprintf(stdout, "Inside the history counter %s\n", exec_argv[1]);
 					strcpy(History[History_Counter],exec_argv[0]);	
 					History_Counter++;
 				}
