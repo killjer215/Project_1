@@ -67,6 +67,7 @@ int main(int argc, char **argv)
 	int counter = 0;
 	char History[9][SHELL_BUFFER_SIZE];
 	int History_Counter = 0;
+	int Not_Valid = 0;
 	
 	
 
@@ -152,12 +153,15 @@ int main(int argc, char **argv)
 				int L = (int)(exec_argv[0][1])-48;
 				if(L < 1 || L > History_Counter-1){
 					fprintf(stderr, "Not valid\n");
+					Not_Valid = 1;
 					break;}
 				else{
 					
 					strcpy(exec_argv[0],History[L-1]);	
 				}
 			}
+			if(Not_Valid) {Not_Valid = 0;
+				       continue;} 
 			if (!strcmp(exec_argv[0], "sub"))
 			{
 				strcpy(exec_argv[0],"./shell");
