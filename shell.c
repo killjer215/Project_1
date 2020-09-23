@@ -147,10 +147,11 @@ int main(int argc, char **argv)
 			if (pid_from_fork == 0) {
 				
 				// TO-DO P5.6
-				counter++;
+				
 				return imthechild(exec_argv[0], &exec_argv[0]);
 				/* Exit from main. */
 			} else {
+				counter++;
 				imtheparent(pid_from_fork, run_in_background);
 				/* Parent will continue around the loop. */
 			}
