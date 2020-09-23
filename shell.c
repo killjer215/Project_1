@@ -95,7 +95,7 @@ int main(int argc, char **argv)
 		
 		/* Parse the arguments: the first argument is the file or command *
 		 * we want to run.                                                */
-		printf("I'm sleepy %s\n", exec_argv[1]);
+		
 		parser_state = STATE_SPACE;
 		for (exec_argc = 0, i = 0;
 		     (buffer[i] != '\n') && (exec_argc < SHELL_MAX_ARGS); i++) {
@@ -121,14 +121,14 @@ int main(int argc, char **argv)
 			continue;
 		/* Terminate the list of exec parameters with NULL */
 		exec_argv[exec_argc] = NULL;
-		printf("Outside the History Counter if %s\n", exec_argv[1]);
+		
 		if(History_Counter < 9)
 				{
 					printf("Inside the history counter %s\n", exec_argv[1]);
 					strcpy(History[History_Counter],exec_argv[0]);	
 					History_Counter++;
 				}
-		printf("Outside the else if %s\n", exec_argv[1]);
+		printf("Outside the else if %s\n", exec_argv[0]);
 		/* If Shell runs 'exit' it exits the program. */
 		if (!strcmp(exec_argv[0], "exit")) {
 			printf("Exiting process %d\n", shell_pid);
@@ -142,7 +142,7 @@ int main(int argc, char **argv)
 				fprintf(stderr, "cd: failed to chdir %s\n", exec_argv[1]);	
 			/* End alternative: exit(EXIT_SUCCESS);} */
 
-		} else if (exec_argv[0][0] == '!'){
+		} else if (exec_argv[0] == '!'){
 			printf("It made it in!%s\n", exec_argv[0][1]);
 		}
 		else {
