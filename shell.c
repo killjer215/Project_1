@@ -63,6 +63,7 @@ int main(int argc, char **argv)
 	/* exec_argv: Arguments passed to exec call including NULL terminator. */
 	char *exec_argv[SHELL_MAX_ARGS + 1];
 	// TO-DO new variables for P5.2, P5.3, P5.6
+	int counter = 0;
 
 	/* Entrypoint for the testrunner program */
 	if (argc > 1 && !strcmp(argv[1], "-test")) {
@@ -76,7 +77,7 @@ int main(int argc, char **argv)
 	/* The Shell runs in an infinite loop, processing input. */
 
 		// TO-DO P5.2
-		fprintf(stdout, "Shell(pid=%d)> ", shell_pid);
+		fprintf(stdout, "Shell(pid=%d)%counter> ", shell_pid,counter);
 		fflush(stdout);
 
 		/* Read a line of input. */
