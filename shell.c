@@ -30,6 +30,7 @@ void imtheparent(pid_t child_pid, int run_in_background)
 	int child_return_val, child_error_code;
 
 	/* fork returned a positive pid so we are the parent */
+	
 	fprintf(stderr,
 	        "  Parent says 'child process has been forked with pid=%d'\n",
 	        child_pid);
@@ -146,7 +147,7 @@ int main(int argc, char **argv)
 			if (pid_from_fork == 0) {
 				
 				// TO-DO P5.6
-
+				counter++;
 				return imthechild(exec_argv[0], &exec_argv[0]);
 				/* Exit from main. */
 			} else {
