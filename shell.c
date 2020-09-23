@@ -150,6 +150,7 @@ int main(int argc, char **argv)
 				if(L < 1 || L > History_Counter)
 					fprintf(stderr, "Not valid");
 				else{
+					fprintf(stdout, "Its In the else if sojenfajsneoisadf\n%d%s",L,History[L-1]);
 					strcpy(exec_argv[0],History[L-1]);	
 				}
 			}
