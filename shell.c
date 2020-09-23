@@ -142,8 +142,8 @@ int main(int argc, char **argv)
 				fprintf(stderr, "cd: failed to chdir %s\n", exec_argv[1]);	
 			/* End alternative: exit(EXIT_SUCCESS);} */
 
-		} else if (exec_argv[0] == '!'){
-			printf("It made it in!%s\n", exec_argv[0][1]);
+		} else if (exec_argv[0][0] == '!'){
+			printf("It made it in!\n");
 		}
 		else {
 		/* Execute Commands */
