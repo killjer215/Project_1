@@ -65,6 +65,8 @@ int main(int argc, char **argv)
 	char *exec_argv[SHELL_MAX_ARGS + 1];
 	// TO-DO new variables for P5.2, P5.3, P5.6
 	int counter = 0;
+	char History[9][SHELL_BUFFER_SIZE];
+	int History_Counter = 0;
 
 	/* Entrypoint for the testrunner program */
 	if (argc > 1 && !strcmp(argv[1], "-test")) {
@@ -90,7 +92,7 @@ int main(int argc, char **argv)
 		buffer[n_read - run_in_background - 1] = '\n';
 
 		// TO-DO P5.3
-
+		
 		/* Parse the arguments: the first argument is the file or command *
 		 * we want to run.                                                */
 
@@ -119,7 +121,11 @@ int main(int argc, char **argv)
 			continue;
 		/* Terminate the list of exec parameters with NULL */
 		exec_argv[exec_argc] = NULL;
-
+		if(History_Counter < 9)
+				{
+					strcpy(History[History_Counter],exec_argv[0]);	
+					History_Counter++;
+				}
 		/* If Shell runs 'exit' it exits the program. */
 		if (!strcmp(exec_argv[0], "exit")) {
 			printf("Exiting process %d\n", shell_pid);
@@ -133,7 +139,10 @@ int main(int argc, char **argv)
 				fprintf(stderr, "cd: failed to chdir %s\n", exec_argv[1]);	
 			/* End alternative: exit(EXIT_SUCCESS);} */
 
-		} else {
+		} else if (exec_argv[0][0] == '!'){
+			fprintf(stdout, "It made it in!%s\n", exec_argv[0][1]);
+		}
+		else {
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
 			pid_from_fork = fork();
