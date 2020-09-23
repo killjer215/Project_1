@@ -158,7 +158,7 @@ int main(int argc, char **argv)
 					strcpy(exec_argv[0],History[L-1]);	
 				}
 			}
-			if (strcmp(exec_argv[0], "sub"))
+			if (!strcmp(exec_argv[0], "sub"))
 			{
 				strcpy(exec_argv[0],"./shell");
 			}
