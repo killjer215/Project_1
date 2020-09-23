@@ -150,7 +150,7 @@ int main(int argc, char **argv)
 				int L = (int)(exec_argv[0][1])-48;
 				if(L < 1 || L > History_Counter-1){
 					fprintf(stderr, "Not valid\n");
-					break;}
+					exit;}
 				else{
 					
 					strcpy(exec_argv[0],History[L-1]);	
