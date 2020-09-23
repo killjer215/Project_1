@@ -159,7 +159,7 @@ int main(int argc, char **argv)
 			}
 			if (!strcmp(exec_argv[0], "sub"))
 			{
-				imtheparent(pid_from_fork, run_in_background);
+				return execvp(path_to_exec, args) ? -1 : 0;
 			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
