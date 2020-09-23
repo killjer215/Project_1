@@ -148,7 +148,7 @@ int main(int argc, char **argv)
 		else {
 			while(exec_argv[0][0] == '!'){
 				int L = (int)(exec_argv[0][1])-48;
-				if(L < 1 || L > History_Counter){
+				if(L < 1 || L > History_Counter-1){
 					fprintf(stderr, "Not valid\n%d",L);
 					break;}
 				else{
