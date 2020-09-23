@@ -170,7 +170,7 @@ int main(int argc, char **argv)
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
 			pid_from_fork = fork();
-			printf("This is the fork number:%d \n\n",pid_from_fork);
+			//printf("This is the fork number:%d \n\n",pid_from_fork);
 			if (pid_from_fork < 0) {
 				/* Error: fork() failed.  Unlikely, but possible (e.g. OS *
 				 * kernel runs out of memory or process descriptors).     */
