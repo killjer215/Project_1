@@ -77,7 +77,7 @@ int main(int argc, char **argv)
 	/* The Shell runs in an infinite loop, processing input. */
 
 		// TO-DO P5.2
-		fprintf(stdout, "Shell(pid=%d)%counter> ", shell_pid,counter);
+		fprintf(stdout, "Shell(pid=%d)%d> ", shell_pid,counter);
 		fflush(stdout);
 
 		/* Read a line of input. */
