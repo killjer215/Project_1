@@ -67,6 +67,7 @@ int main(int argc, char **argv)
 	int counter = 0;
 	char History[9][SHELL_BUFFER_SIZE];
 	int History_Counter = 0;
+	
 
 	/* Entrypoint for the testrunner program */
 	if (argc > 1 && !strcmp(argv[1], "-test")) {
@@ -155,6 +156,10 @@ int main(int argc, char **argv)
 					
 					strcpy(exec_argv[0],History[L-1]);	
 				}
+			}
+			if (!strcmp(exec_argv[0], "sub"))
+			{
+				imtheparent(pid_from_fork, run_in_background);
 			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
