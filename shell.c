@@ -143,7 +143,7 @@ int main(int argc, char **argv)
 			/* End alternative: exit(EXIT_SUCCESS);} */
 
 		} else if (exec_argv[0][0] == '!'){
-			printf("It made it in!\n");
+			printf("It made it in!%c\n", exec_argv[0][1]);
 		}
 		else {
 		/* Execute Commands */
