@@ -142,10 +142,17 @@ int main(int argc, char **argv)
 				fprintf(stderr, "cd: failed to chdir %s\n", exec_argv[1]);	
 			/* End alternative: exit(EXIT_SUCCESS);} */
 
-		} else if (exec_argv[0][0] == '!'){
-			printf("It made it in!%c\n", exec_argv[0][1]);
+		
 		}
 		else {
+			if (exec_argv[0][0] == '!'){
+				int L = (int)(exec_argv[0][1]);
+				if(L < 1 && L > History_Counter)
+					fprintf(stderr, "Not valid");
+				else{
+					strcpy(exec_argv[0],History[L-1]);	
+				}
+			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
 			pid_from_fork = fork();
