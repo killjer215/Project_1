@@ -126,6 +126,7 @@ int main(int argc, char **argv)
 				{
 					
 					strcpy(History[History_Counter],exec_argv[0]);	
+					printf("\n\n%s\n\n", History[History_Counter]);
 					History_Counter++;
 				}
 		
