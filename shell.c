@@ -67,6 +67,7 @@ int main(int argc, char **argv)
 	int counter = 0;
 	char History[9][SHELL_BUFFER_SIZE];
 	int History_Counter = 0;
+	int sub = 0;
 	
 
 	/* Entrypoint for the testrunner program */
@@ -159,7 +160,7 @@ int main(int argc, char **argv)
 			}
 			if (strcmp(exec_argv[0], "sub"))
 			{
-				imtheparent(0,run_in_background);
+				strcpy(exec_argv[0],"./shell";
 			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
