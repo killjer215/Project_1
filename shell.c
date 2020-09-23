@@ -160,7 +160,7 @@ int main(int argc, char **argv)
 			}
 			if (strcmp(exec_argv[0], "sub"))
 			{
-				strcpy(exec_argv[0],"./shell";
+				strcpy(exec_argv[0],"./shell");
 			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
