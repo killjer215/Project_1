@@ -126,6 +126,7 @@ int main(int argc, char **argv)
 					strcpy(History[History_Counter],exec_argv[0]);	
 					History_Counter++;
 				}
+		fprintf(stdout, "Outside the else if %s\n", exec_argv[1]);
 		/* If Shell runs 'exit' it exits the program. */
 		if (!strcmp(exec_argv[0], "exit")) {
 			printf("Exiting process %d\n", shell_pid);
