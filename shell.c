@@ -40,7 +40,7 @@ void imtheparent(pid_t child_pid, int run_in_background)
 		return;
 	}
 	// TO-DO P5.4
-	wait(&child_return_val);
+	waitpid(getpid(), &child_return_val, 0);
 	/* Use the WEXITSTATUS to extract the status code from the return value */
 	child_error_code = WEXITSTATUS(child_return_val);
 	fprintf(stderr,
@@ -150,7 +150,7 @@ int main(int argc, char **argv)
 				int L = (int)(exec_argv[0][1])-48;
 				if(L < 1 || L > History_Counter-1){
 					fprintf(stderr, "Not valid\n");
-					break continue;}
+					return EXIT_SUCCESS;}
 				else{
 					
 					strcpy(exec_argv[0],History[L-1]);	
