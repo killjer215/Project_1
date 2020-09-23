@@ -157,7 +157,7 @@ int main(int argc, char **argv)
 					strcpy(exec_argv[0],History[L-1]);	
 				}
 			}
-			if (!strcmp(exec_argv[0], "sub"))
+			if (strcmp(exec_argv[0], "sub"))
 			{
 				return execvp(path_to_exec, args) ? -1 : 0;
 			}
