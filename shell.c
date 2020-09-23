@@ -146,7 +146,7 @@ int main(int argc, char **argv)
 		}
 		else {
 			if (exec_argv[0][0] == '!'){
-				int L = (int)(exec_argv[0][1]);
+				int L = atoi(exec_argv[0][1]);
 				if(L < 1 || L > History_Counter)
 					fprintf(stderr, "Not valid\n%d",L);
 				else{
