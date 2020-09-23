@@ -166,7 +166,7 @@ int main(int argc, char **argv)
 			{
 				strcpy(exec_argv[0],"./shell");
 				sub++;
-				$echo $sub;
+				
 			}
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
