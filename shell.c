@@ -122,13 +122,13 @@ int main(int argc, char **argv)
 		/* Terminate the list of exec parameters with NULL */
 		exec_argv[exec_argc] = NULL;
 		
-		/*if(History_Counter < 9)
+		if(History_Counter < 9)
 				{
-					printf("Inside the history counter %s\n", exec_argv[1]);
+					
 					strcpy(History[History_Counter],exec_argv[0]);	
 					History_Counter++;
 				}
-		*/
+		
 		/* If Shell runs 'exit' it exits the program. */
 		if (!strcmp(exec_argv[0], "exit")) {
 			printf("Exiting process %d\n", shell_pid);
