@@ -183,6 +183,7 @@ int main(int argc, char **argv)
 						strcpy(exec_argv[0],argv[0]);
 						sub++;
 						History_Counter = 0;
+						counter = 0;
 						shell_pid = getpid();
 						}
 						else {
