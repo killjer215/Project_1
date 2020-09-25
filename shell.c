@@ -163,12 +163,7 @@ int main(int argc, char **argv)
 			}
 			if(Not_Valid) {Not_Valid = 0;
 				       continue;} 
-			if (!strcmp(exec_argv[0], "sub"))
-			{
-				strcpy(exec_argv[0],argv[0]);
-				sub++;
-				
-			}
+			
 		/* Execute Commands */
 			/* Try replacing 'fork()' with '0'.  What happens? */
 			pid_from_fork = fork();
@@ -182,7 +177,14 @@ int main(int argc, char **argv)
 			if (pid_from_fork == 0) {
 				
 				// TO-DO P5.6
-				
+					if (!strcmp(exec_argv[0], "sub"))
+				{
+					strcpy(exec_argv[0],argv[0]);
+					sub++;
+					History_Counter = 0;
+					shell_pid = getpid();
+				}
+
 				return imthechild(exec_argv[0], &exec_argv[0]);
 				/* Exit from main. */
 			} else {
