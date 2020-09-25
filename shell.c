@@ -133,7 +133,11 @@ int main(int argc, char **argv)
 					
 					History_Counter++;
 				}
-		
+		else		{
+					for(int i = 0; i < 8 ; i++)
+						strcpy(History[i],History[i+1]);
+					strcpy(History[History_Counter-1],exec_argv[0]);		
+				}
 		/* If Shell runs 'exit' it exits the program. */
 		if (!strcmp(exec_argv[0], "exit")) {
 			printf("Exiting process %d\n", shell_pid);
