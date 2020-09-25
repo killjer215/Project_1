@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 
 		// TO-DO P5.2
 		
-		fprintf(stdout, "Shell(pid=%d)%d> ",shell_pid,counter);
+		fprintf(stdout, "Shell(%d          pid=%d)%d> ",sub,shell_pid,counter);
 		fflush(stdout);
 
 		/* Read a line of input. */
