@@ -179,7 +179,7 @@ int main(int argc, char **argv)
 				// TO-DO P5.6
 					if (!strcmp(exec_argv[0], "sub"))
 					{
-						if(sub + 1 =< 3){
+						if(sub + 1 <= 3){
 						strcpy(exec_argv[0],argv[0]);
 						sub++;
 						History_Counter = 0;
