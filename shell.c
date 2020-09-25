@@ -186,7 +186,7 @@ int main(int argc, char **argv)
 						shell_pid = getpid();
 						}
 						else {
-							fprint(stderr, "Too deep!\n");
+							fprintf(stderr, "Too deep!\n");
 							return imthechild(exec_argv[0], &exec_argv[0]);
 						}
 					}
