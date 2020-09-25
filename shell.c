@@ -178,14 +178,20 @@ int main(int argc, char **argv)
 				
 				// TO-DO P5.6
 					if (!strcmp(exec_argv[0], "sub"))
-				{
-					strcpy(exec_argv[0],argv[0]);
-					sub++;
-					History_Counter = 0;
-					shell_pid = getpid();
-				}
-				else
-					return imthechild(exec_argv[0], &exec_argv[0]);
+					{
+						if(sub + 1 =< 3){
+						strcpy(exec_argv[0],argv[0]);
+						sub++;
+						History_Counter = 0;
+						shell_pid = getpid();
+						}
+						else {
+							fprint(stderr, "Too deep!\n");
+							return imthechild(exec_argv[0], &exec_argv[0]);
+						}
+					}
+					else
+						return imthechild(exec_argv[0], &exec_argv[0]);
 				/* Exit from main. */
 			} else {
 				counter++;
