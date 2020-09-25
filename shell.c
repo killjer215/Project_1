@@ -14,7 +14,7 @@
 /* DEFINE SECTION */
 #define SHELL_BUFFER_SIZE 256   /* Size of the Shell input buffer        */
 #define SHELL_MAX_ARGS 8        /* Maximum number of arguments parsed    */
-int sub = 1;
+
 /* VARIABLE SECTION */
 enum { STATE_SPACE, STATE_NON_SPACE };	/* Parser states */
 
@@ -68,6 +68,7 @@ int main(int argc, char **argv)
 	char History[9][SHELL_BUFFER_SIZE];
 	int History_Counter = 0;
 	int Not_Valid = 0;
+	int sub = 1;
 	
 	
 
