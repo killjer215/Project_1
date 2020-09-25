@@ -134,8 +134,11 @@ int main(int argc, char **argv)
 					History_Counter++;
 				}
 		else		{
-					for(int i = 0; i < 8 ; i++)
+					for(int i = 0; i < 8 ; i++){
+						printf("%s =     %s =       \n\n", History[i],History[i+1]);
 						strcpy(History[i],History[i+1]);
+						printf("%s =     %s =       \n\n", History[i],History[i+1]);
+					}
 					strcpy(History[History_Counter-1],exec_argv[0]);		
 				}
 		/* If Shell runs 'exit' it exits the program. */
