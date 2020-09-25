@@ -159,13 +159,20 @@ int main(int argc, char **argv)
 		else {
 			while(exec_argv[0][0] == '!'){
 				int L = (int)(exec_argv[0][1])-48;
+				int loop = 0;
 				if(L < 1 || L > History_Counter-1){
 					fprintf(stderr, "Not valid\n");
 					Not_Valid = 1;
 					break;}
+				else if(loop > 9){
+					fprintf(stderr, "Not valid\n");
+					Not_Valid = 1;
+					break;						
+				}
 				else{
 					
-					strcpy(exec_argv[0],History[L-1]);	
+					strcpy(exec_argv[0],History[L-1]);
+					loop++;
 				}
 			}
 			if(Not_Valid) {Not_Valid = 0;
