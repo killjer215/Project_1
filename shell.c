@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 
 		// TO-DO P5.2
 		
-		fprintf(stdout, "Shell(pid=%d)%d     %s> ",shell_pid,counter, argv[0]);
+		fprintf(stdout, "Shell(pid=%d)%d> ",shell_pid,counter);
 		fflush(stdout);
 
 		/* Read a line of input. */
@@ -164,7 +164,7 @@ int main(int argc, char **argv)
 				       continue;} 
 			if (!strcmp(exec_argv[0], "sub"))
 			{
-				strcpy(exec_argv[0],"./shell");
+				strcpy(exec_argv[0],argv[0]);
 				sub++;
 				
 			}
