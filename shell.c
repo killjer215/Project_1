@@ -184,8 +184,8 @@ int main(int argc, char **argv)
 					History_Counter = 0;
 					shell_pid = getpid();
 				}
-
-				return imthechild(exec_argv[0], &exec_argv[0]);
+				else
+					return imthechild(exec_argv[0], &exec_argv[0]);
 				/* Exit from main. */
 			} else {
 				counter++;
