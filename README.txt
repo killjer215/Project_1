@@ -52,19 +52,34 @@ STEP 3:  Study the implementation of the shell
 STEP 4:  Questions
 ==================
 
-  1. Why is it necessary to implement a change directory 'cd' command in
+    1. Why is it necessary to implement a change directory 'cd' command in
      the shell?  Could it be implemented by an external program instead?
+You implement the change directory within the shell because it’s inconvenient to implement them outside the shell. The ‘cd’ command directly manipulates the shell so it wouldn’t make sense to have it implemented separately.
+Trying to accomplish this through a child process or an external program can end up bringing security issues. This is because you can’t change the current working directory of the shell itself from a child process without problems arising. 
+It cannot be implemented by an external program because if a child process has the ability to change directory, the user would not be able to change directories after they run the “cd” command because they would lose control after it goes back to the parent 
 
   2. Explain how our sample shell implements the change directory command.
+***The cd command is a command-line shell command used to change the current working directory in various operating systems. It can be used in shell scripts and batch files. This command is used to modify the current working directory and this is a property that is unique to each process.
+
+In this program, the shell calls chdir and prints out an error if there is no directory. 
+
+
 
   3. What would happen if this program did not use the fork function, but
      just used execv directly?  (Try it!)
 
      Try temporarily changing the code 'pid_from_fork = fork();'
      to 'pid_from_fork = 0;'
+Rerun and counter tests now pass.
+
 
   4. Explain what the return value of fork() means and how this program
      uses it.
+Fork() will return a negative 1 if it could not create a child process (kernel ran out of memory or process descriptors)
+It will return 0 if it could create one. 
+
+Otherwise, if it’s positive, it returns the pid=%d of the child process. (Implemented in imtheparent function)
+
 
   5. What would happen if fork() were called prior to chdir(), and chdir()
      invoked within the forked child process?  (Try it!)
@@ -78,14 +93,19 @@ STEP 4:  Questions
          exit(EXIT_SUCCESS);
      }
 
+It will make a child process. Chdir then changes the child directory but if it fails, it displays error and exits. 
   6. Can you run multiple versions of ./b.sh in the background?
      What happens to their output?
+Yes, you can do it without modification. The output should not change. 
 
   7. Can you execute a second instance of our shell from within our shell
      program (use './shell')?  Which shell receives your input?
+Yes, we can execute a second instance but the second one will receive our output because when you create a new instance, (subshell) it cannot change the environment of the parent. It is an entirely separate context. 
 
   8. What happens if you type CTRL-C while the countdown script ./b.sh is
      running?  What if ./b.sh is running in the background?
+The script will be exited in both instances. 
+
 
   9. Can a shell kill itself?  Can a shell within a shell kill the parent
      shell?
@@ -93,6 +113,7 @@ STEP 4:  Questions
      ./shell
      ./shell
      /bin/kill -s KILL NNN      (Where NNN is the the parent's PID.)
+Yes, a shell can kill itself. A shell within a shell can kill the parent shell. 
 
   10. What happens to background processes when you exit from the shell?
       Do they continue to run?  Can you see them with the 'ps' command?
@@ -101,6 +122,7 @@ STEP 4:  Questions
       ./b.sh&
       exit
       ps
+Yes, they continue to run when we exit from the shell. You can also see them with the ‘ps’ command.  You can exit the shell with any background jobs that are in the running state without terminating them 
 
 
 STEP 5:  Modify the MP
